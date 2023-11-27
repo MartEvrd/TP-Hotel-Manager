@@ -10,14 +10,14 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-@Entity
 @EntityListeners(AuditingEntityListener.class)
-public class Client {
+public class ClientEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long clientId;
@@ -43,4 +43,8 @@ public class Client {
     @Column(nullable = false, name = "last_modification_date")
     @JsonFormat(pattern = "MM/dd/yyyy HH:mm:ss")
     private LocalDateTime lastModifiedDate;
+
+    @OneToMany
+    private List<ReservationEntity> reservations;
+
 }

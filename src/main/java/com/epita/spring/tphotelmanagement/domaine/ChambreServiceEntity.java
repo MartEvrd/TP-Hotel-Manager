@@ -12,6 +12,7 @@ import java.time.LocalTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "chambre_service")
 public class ChambreServiceEntity {
 
     @EmbeddedId
@@ -22,7 +23,7 @@ public class ChambreServiceEntity {
     private ChambreEntity chambre;
 
     @ManyToOne
-    @MapsId("chambreId")
+    @MapsId("serviceId")
     private ServiceEntity service;
 
     @Column(nullable = false)

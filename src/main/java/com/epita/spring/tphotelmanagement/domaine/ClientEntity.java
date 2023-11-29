@@ -1,7 +1,6 @@
 package com.epita.spring.tphotelmanagement.domaine;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -47,7 +46,7 @@ public class ClientEntity {
     private LocalDateTime lastModifiedDate;
 
     @OneToMany(mappedBy = "client")
-    @JsonManagedReference
+//    @JsonManagedReference
     private List<ReservationEntity> reservations;
 
 }

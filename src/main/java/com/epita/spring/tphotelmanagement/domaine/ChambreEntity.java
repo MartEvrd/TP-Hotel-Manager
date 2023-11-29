@@ -39,7 +39,7 @@ public class ChambreEntity {
     private Boolean disponible;
 
     @OneToMany(mappedBy = "chambre")
-    @JsonManagedReference
+//    @JsonManagedReference
     private List<ReservationEntity> reservations;
 
     @CreatedDate

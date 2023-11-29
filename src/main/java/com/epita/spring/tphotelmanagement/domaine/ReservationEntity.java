@@ -31,12 +31,12 @@ public class ReservationEntity {
 
     @ManyToOne
     @JoinColumn(name = "client_id")
-    @JsonBackReference
+//    @JsonBackReference
     private ClientEntity client;
 
     @ManyToOne
     @JoinColumn(name = "chambre_id")
-    @JsonBackReference
+//    @JsonBackReference
     private ChambreEntity chambre;
 
     @CreatedDate

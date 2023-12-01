@@ -1,5 +1,7 @@
 package com.epita.spring.tphotelmanagement.exposition.dto.reservation;
 
+import com.epita.spring.tphotelmanagement.domaine.ChambreEntity;
+import com.epita.spring.tphotelmanagement.domaine.ClientEntity;
 import com.epita.spring.tphotelmanagement.domaine.ReservationEntity;
 import com.epita.spring.tphotelmanagement.exposition.dto.chambre.ChambreConverterDto;
 import com.epita.spring.tphotelmanagement.exposition.dto.client.ClientConverterDto;
@@ -7,6 +9,30 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ReservationConverterDto {
+
+    public static ReservationEntity convertToEntityResGetClientGetChambreDto(ReservationGetClientGetChambreDto reservationGetClientGetChambreDto){
+        ReservationEntity reservation = new ReservationEntity();
+        ClientEntity client = new ClientEntity();
+        ChambreEntity chambre = new ChambreEntity();
+        reservation.setDateDebut(reservationGetClientGetChambreDto.getDateDebut());
+        reservation.setDateFin(reservationGetClientGetChambreDto.getDateFin());
+
+        client.setNom(reservationGetClientGetChambreDto.getClient().getNom());
+        client.setPrenom(reservationGetClientGetChambreDto.getClient().getPrenom());
+        client.setClientId(reservationGetClientGetChambreDto.getClient().getClientId());
+        client.setEmail(reservationGetClientGetChambreDto.getClient().getEmail());
+        client.setTelephone(reservationGetClientGetChambreDto.getClient().getTelephone());
+
+        chambre.setNumero(reservationGetClientGetChambreDto.getChambre().getNumero());
+        chambre.setDisponible(reservationGetClientGetChambreDto.getChambre().getDisponible());
+        chambre.setChambreId(reservationGetClientGetChambreDto.getChambre().getChambreId());
+        chambre.setPrixNuit(reservationGetClientGetChambreDto.getChambre().getPrixNuit());
+        chambre.setType(reservationGetClientGetChambreDto.getChambre().getType());
+
+        reservation.setClient(client);
+        reservation.setChambre(chambre);
+        return reservation;
+    }
 
     public static ReservationByClientDto convertToDtoReservationByClient(ReservationEntity r){
         ReservationByClientDto rDto = new ReservationByClientDto();

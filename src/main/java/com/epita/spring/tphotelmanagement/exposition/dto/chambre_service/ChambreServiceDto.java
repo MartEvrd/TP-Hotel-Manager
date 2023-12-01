@@ -12,7 +12,6 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ChambreServiceDto {
-    protected ChambreServiceId id;
     protected LocalDate date;
     protected LocalTime heure;
     protected String commentaire;

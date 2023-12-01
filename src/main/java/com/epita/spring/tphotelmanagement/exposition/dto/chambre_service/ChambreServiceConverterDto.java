@@ -8,7 +8,6 @@ public class ChambreServiceConverterDto {
 
     public static ChambreServiceDto convertToDtoChambreService(ChambreServiceEntity cs){
         ChambreServiceDto csDto = new ChambreServiceDto();
-        csDto.setId(cs.getId());
         csDto.setDate(cs.getDate());
         csDto.setHeure(cs.getHeure());
         csDto.setCommentaire(cs.getCommentaire());
@@ -17,7 +16,6 @@ public class ChambreServiceConverterDto {
 
     public static ChambreServiceByChambreDto convertToDtoChambreServiceByChambre(ChambreServiceEntity cs){
         ChambreServiceByChambreDto csDto = new ChambreServiceByChambreDto();
-        csDto.setId(cs.getId());
         csDto.setDate(cs.getDate());
         csDto.setHeure(cs.getHeure());
         csDto.setCommentaire(cs.getCommentaire());
@@ -27,7 +25,6 @@ public class ChambreServiceConverterDto {
 
     public static ChambreServiceByServciceDto convertToDtoChambreServiceByService(ChambreServiceEntity cs){
         ChambreServiceByServciceDto csDto = new ChambreServiceByServciceDto();
-        csDto.setId(cs.getId());
         csDto.setDate(cs.getDate());
         csDto.setHeure(cs.getHeure());
         csDto.setCommentaire(cs.getCommentaire());

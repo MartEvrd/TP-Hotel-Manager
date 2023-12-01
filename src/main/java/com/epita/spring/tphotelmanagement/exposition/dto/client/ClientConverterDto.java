@@ -10,6 +10,11 @@ import java.util.List;
 @Component
 public class ClientConverterDto {
 
+    public static ClientEntity convertToEntityClientDto(ClientDto cDto){
+        ClientEntity c = new ClientEntity(cDto.getNom(), cDto.getPrenom(), cDto.getEmail(), cDto.getTelephone());
+        return c;
+    }
+
     // Conversion d'un client standard en client sans réservation
     public static ClientDto convertToDtoClient(ClientEntity client){
         ClientDto cDto = new ClientDto();

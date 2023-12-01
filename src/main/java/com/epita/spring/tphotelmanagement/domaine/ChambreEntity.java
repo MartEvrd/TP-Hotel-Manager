@@ -22,7 +22,7 @@ public class ChambreEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Setter(AccessLevel.NONE)
+//    @Setter(AccessLevel.NONE)
     private Long chambreId;
 
     @Column(nullable = false, length = 4)
@@ -39,7 +39,6 @@ public class ChambreEntity {
     private Boolean disponible;
 
     @OneToMany(mappedBy = "chambre")
-//    @JsonManagedReference
     private List<ReservationEntity> reservations;
 
     @CreatedDate

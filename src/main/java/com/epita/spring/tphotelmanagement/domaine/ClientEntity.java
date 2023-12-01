@@ -8,6 +8,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,12 +16,14 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "client")
+@Table(name = "client", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"nom", "prenom", "email"})
+})
 public class ClientEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Setter(AccessLevel.NONE)
+//    @Setter(AccessLevel.NONE)
     private Long clientId;
 
     @Column(nullable = false, length = 100)
@@ -45,8 +48,14 @@ public class ClientEntity {
     @JsonFormat(pattern = "MM/dd/yyyy HH:mm:ss")
     private LocalDateTime lastModifiedDate;
 
-    @OneToMany(mappedBy = "client")
-//    @JsonManagedReference
+    @OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE)
     private List<ReservationEntity> reservations;
 
+    public ClientEntity(String nom, String prenom, String email, String telephone) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.telephone = telephone;
+        this.reservations = new ArrayList<>();
+    }
 }

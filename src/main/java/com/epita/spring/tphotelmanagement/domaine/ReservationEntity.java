@@ -1,6 +1,5 @@
 package com.epita.spring.tphotelmanagement.domaine;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
@@ -29,14 +28,12 @@ public class ReservationEntity {
     @Column(nullable = false)
     private LocalDateTime dateFin;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "client_id")
-//    @JsonBackReference
     private ClientEntity client;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "chambre_id")
-//    @JsonBackReference
     private ChambreEntity chambre;
 
     @CreatedDate

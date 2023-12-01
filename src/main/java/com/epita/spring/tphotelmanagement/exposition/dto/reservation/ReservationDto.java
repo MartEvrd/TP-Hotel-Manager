@@ -13,9 +13,7 @@ import java.time.LocalDateTime;
 public class ReservationDto {
     protected Long reservationId;
 
-    @JsonFormat(pattern = "MM/dd/yyyy HH:mm:ss")
     protected LocalDateTime dateDebut;
 
-    @JsonFormat(pattern = "MM/dd/yyyy HH:mm:ss")
     protected LocalDateTime dateFin;
 }

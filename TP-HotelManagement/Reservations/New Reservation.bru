@@ -1,0 +1,32 @@
+meta {
+  name: New Reservation
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/reservation
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "client": {
+      "clientId": 1,
+      "nom": "Evrard",
+      "prenom": "Martin",
+      "email": "abc@abc.com",
+      "telephone": "06060606060"
+    },
+    "chambre": {
+      "chambreId": 1,
+      "numero": "458",
+      "type": "LIT_SIMPLE",
+      "prix_Nuit": 40,
+      "disponible": false
+    },
+    "dateDebut": "2023-07-07T00:00:00",
+    "dateFin": "2023-07-10T00:00:00"
+  }
+}

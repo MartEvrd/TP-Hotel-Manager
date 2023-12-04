@@ -24,15 +24,15 @@ insert into client (creation_date, last_modification_date, nom, prenom, email, t
 
 ------ -> Service -----
 insert into service (nom, description, creation_date, last_modification_date, tarif) values ('apero', 'integer pede justo lacinia eget tincidunt eget', '2022-07-19', '2022-03-21', 74.05);
-insert into service (nom, description, creation_date, last_modification_date, tarif) values ('wifi', 'lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea', '2022-02-09', '2023-10-13', 28.76);
-insert into service (nom, description, creation_date, last_modification_date, tarif) values ('apero', 'ut erat curabitur gravida nisi at nibh in', '2022-07-21', '2023-11-28', 57.74);
-insert into service (nom, description, creation_date, last_modification_date, tarif) values ('repas', 'sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio', '2022-04-28', '2023-08-14', 68.69);
-insert into service (nom, description, creation_date, last_modification_date, tarif) values ('apero', 'lacus at velit vivamus vel nulla', '2022-05-07', '2022-03-18', 50.16);
-insert into service (nom, description, creation_date, last_modification_date, tarif) values ('repas', 'curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget', '2023-02-10', '2023-08-15', 32.52);
-insert into service (nom, description, creation_date, last_modification_date, tarif) values ('spa', 'in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque', '2023-09-08', '2022-04-19', 91.15);
-insert into service (nom, description, creation_date, last_modification_date, tarif) values ('spa', 'tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim', '2023-09-23', '2023-11-09', 23.84);
-insert into service (nom, description, creation_date, last_modification_date, tarif) values ('apero', 'curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit', '2023-03-10', '2023-05-31', 33.89);
-insert into service (nom, description, creation_date, last_modification_date, tarif) values ('wifi', 'non lectus aliquam sit amet diam', '2022-02-28', '2022-04-23', 61.25);
+insert into service (nom, description, creation_date, last_modification_date, tarif) values ('wifi-premium', 'lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea', '2022-02-09', '2023-10-13', 28.76);
+insert into service (nom, description, creation_date, last_modification_date, tarif) values ('apero-premium', 'ut erat curabitur gravida nisi at nibh in', '2022-07-21', '2023-11-28', 57.74);
+insert into service (nom, description, creation_date, last_modification_date, tarif) values ('petit-déjeuner', 'sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio', '2022-04-28', '2023-08-14', 68.69);
+insert into service (nom, description, creation_date, last_modification_date, tarif) values ('petit-déjeuner en chambre', 'lacus at velit vivamus vel nulla', '2022-05-07', '2022-03-18', 50.16);
+insert into service (nom, description, creation_date, last_modification_date, tarif) values ('voiturier', 'curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget', '2023-02-10', '2023-08-15', 32.52);
+insert into service (nom, description, creation_date, last_modification_date, tarif) values ('jacuzzi', 'in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque', '2023-09-08', '2022-04-19', 91.15);
+insert into service (nom, description, creation_date, last_modification_date, tarif) values ('massage californien', 'tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim', '2023-09-23', '2023-11-09', 23.84);
+insert into service (nom, description, creation_date, last_modification_date, tarif) values ('massage suédois', 'curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit', '2023-03-10', '2023-05-31', 33.89);
+insert into service (nom, description, creation_date, last_modification_date, tarif) values ('wifi standard', 'non lectus aliquam sit amet diam', '2022-02-28', '2022-04-23', 61.25);
 
 ------ -> Reservation -----
 insert into reservation (date_debut, date_fin, creation_date, last_modification_date, client_id, chambre_id) values ('2024-01-01', '2024-01-31', '2023-06-30', '2023-05-27', 2, 7);

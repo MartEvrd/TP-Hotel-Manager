@@ -8,6 +8,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -46,4 +47,10 @@ public class ServiceEntity {
     @OneToMany(mappedBy = "service")
     private List<ChambreServiceEntity> chambreServices;
 
+    public ServiceEntity(String nom, String description, Double tarif) {
+        this.nom = nom;
+        this.description = description;
+        this.tarif = tarif;
+        this.chambreServices = new ArrayList<>();
+    }
 }

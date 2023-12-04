@@ -1,0 +1,19 @@
+meta {
+  name: Update Service
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{base_url}}/service/12
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nom": "fleurs en chambre",
+    "description": "Dépôt de fleurs pour l'arrivée des clients",
+    "tarif": 75
+  }
+}

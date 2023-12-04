@@ -61,7 +61,7 @@ public class ChambreService {
         if(ch.getType() != chBase.getType()){
             chBase.setType(ch.getType());
         }
-        if(ch.getPrixNuit() != chBase.getPrixNuit()){
+        if(!Objects.equals(ch.getPrixNuit(), chBase.getPrixNuit())){
             chBase.setPrixNuit(ch.getPrixNuit());
         }
         if(ch.getDisponible() != chBase.getDisponible()){

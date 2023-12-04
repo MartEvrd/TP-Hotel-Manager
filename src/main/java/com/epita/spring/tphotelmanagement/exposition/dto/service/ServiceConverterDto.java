@@ -8,6 +8,16 @@ import java.util.List;
 
 public class ServiceConverterDto{
 
+
+    public static ServiceEntity convertToEntityServiceDto(ServiceDto sDto){
+        ServiceEntity s = new ServiceEntity(
+                sDto.getNom(),
+                sDto.getDescription(),
+                sDto.getTarif()
+        );
+        return s;
+    }
+
     public static ServiceDto convertToDtoService(ServiceEntity s){
         ServiceDto sDto = new ServiceDto();
         sDto.setServiceId(s.getServiceId());

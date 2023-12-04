@@ -35,9 +35,9 @@ insert into service (nom, description, creation_date, last_modification_date, ta
 insert into service (nom, description, creation_date, last_modification_date, tarif) values ('wifi', 'non lectus aliquam sit amet diam', '2022-02-28', '2022-04-23', 61.25);
 
 ------ -> Reservation -----
-insert into reservation (date_debut, date_fin, creation_date, last_modification_date, client_id, chambre_id) values ('2023-07-07', '2023-10-20', '2023-06-30', '2023-05-27', 2, 2);
-insert into reservation (date_debut, date_fin, creation_date, last_modification_date, client_id, chambre_id) values ('2023-06-19', '2023-07-15', '2023-10-16', '2023-12-06', 5, 1);
-insert into reservation (date_debut, date_fin, creation_date, last_modification_date, client_id, chambre_id) values ('2023-04-28', '2023-02-22', '2023-05-19', '2023-07-02', 5, 3);
+insert into reservation (date_debut, date_fin, creation_date, last_modification_date, client_id, chambre_id) values ('2024-01-01', '2024-01-31', '2023-06-30', '2023-05-27', 2, 7);
+insert into reservation (date_debut, date_fin, creation_date, last_modification_date, client_id, chambre_id) values ('2024-02-01', '2024-02-15', '2023-10-16', '2023-12-06', 5, 1);
+insert into reservation (date_debut, date_fin, creation_date, last_modification_date, client_id, chambre_id) values ('2024-02-15', '2024-02-20', '2023-05-19', '2023-07-02', 5, 3);
 insert into reservation (date_debut, date_fin, creation_date, last_modification_date, client_id, chambre_id) values ('2023-09-16', '2023-07-11', '2023-05-05', '2023-03-30', 10, 1);
 insert into reservation (date_debut, date_fin, creation_date, last_modification_date, client_id, chambre_id) values ('2023-10-10', '2023-05-12', '2022-12-03', '2023-08-16', 6, 6);
 insert into reservation (date_debut, date_fin, creation_date, last_modification_date, client_id, chambre_id) values ('2023-09-28', '2023-03-04', '2023-11-04', '2023-08-21', 9, 4);

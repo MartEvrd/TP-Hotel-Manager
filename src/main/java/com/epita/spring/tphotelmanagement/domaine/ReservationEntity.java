@@ -7,6 +7,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -23,16 +24,17 @@ public class ReservationEntity {
     private Long reservationId;
 
     @Column(nullable = false)
-    private LocalDateTime dateDebut;
+    private LocalDate dateDebut;
 
     @Column(nullable = false)
-    private LocalDateTime dateFin;
+    private LocalDate dateFin;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "client_id")
+//    @ToString.Exclude
     private ClientEntity client;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "chambre_id")
     private ChambreEntity chambre;
 

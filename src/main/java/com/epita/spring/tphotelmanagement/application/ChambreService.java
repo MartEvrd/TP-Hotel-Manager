@@ -24,6 +24,9 @@ public class ChambreService {
         return ch;
     }
 
+    public boolean chambreExistsById(Long id){
+        return repository.existsById(id);
+    }
 
 }
 

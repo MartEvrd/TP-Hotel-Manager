@@ -63,4 +63,8 @@ public class ClientService {
 
         return repository.save(cBase);
     }
+
+    public boolean clientExistsById(Long id){
+        return repository.existsById(id);
+    }
 }

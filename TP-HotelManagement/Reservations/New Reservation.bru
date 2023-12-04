@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: {{base_url}}/reservation
+  url: {{base_url}}
   body: json
   auth: none
 }
@@ -13,20 +13,12 @@ post {
 body:json {
   {
     "client": {
-      "clientId": 1,
-      "nom": "Evrard",
-      "prenom": "Martin",
-      "email": "abc@abc.com",
-      "telephone": "06060606060"
+      "clientId": 1
     },
     "chambre": {
-      "chambreId": 1,
-      "numero": "458",
-      "type": "LIT_SIMPLE",
-      "prix_Nuit": 40,
-      "disponible": false
+      "chambreId": 7
     },
-    "dateDebut": "2023-07-07T00:00:00",
-    "dateFin": "2023-07-10T00:00:00"
+    "dateDebut": "2023-05-25",
+    "dateFin": "2023-06-02"
   }
 }

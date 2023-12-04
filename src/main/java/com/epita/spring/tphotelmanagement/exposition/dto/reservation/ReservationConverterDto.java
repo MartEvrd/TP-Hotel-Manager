@@ -4,34 +4,47 @@ import com.epita.spring.tphotelmanagement.domaine.ChambreEntity;
 import com.epita.spring.tphotelmanagement.domaine.ClientEntity;
 import com.epita.spring.tphotelmanagement.domaine.ReservationEntity;
 import com.epita.spring.tphotelmanagement.exposition.dto.chambre.ChambreConverterDto;
+import com.epita.spring.tphotelmanagement.exposition.dto.chambre.ChambreDto;
 import com.epita.spring.tphotelmanagement.exposition.dto.client.ClientConverterDto;
+import com.epita.spring.tphotelmanagement.exposition.dto.client.ClientDto;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ReservationConverterDto {
 
-    public static ReservationEntity convertToEntityResGetClientGetChambreDto(ReservationGetClientGetChambreDto reservationGetClientGetChambreDto){
+
+
+    public static ReservationEntity convertToEntityResGetClientGetChambreDto(ReservationGetClientGetChambreDto rDto){
         ReservationEntity reservation = new ReservationEntity();
         ClientEntity client = new ClientEntity();
         ChambreEntity chambre = new ChambreEntity();
-        reservation.setDateDebut(reservationGetClientGetChambreDto.getDateDebut());
-        reservation.setDateFin(reservationGetClientGetChambreDto.getDateFin());
+        reservation.setDateDebut(rDto.getDateDebut());
+        reservation.setDateFin(rDto.getDateFin());
 
-        client.setNom(reservationGetClientGetChambreDto.getClient().getNom());
-        client.setPrenom(reservationGetClientGetChambreDto.getClient().getPrenom());
-        client.setClientId(reservationGetClientGetChambreDto.getClient().getClientId());
-        client.setEmail(reservationGetClientGetChambreDto.getClient().getEmail());
-        client.setTelephone(reservationGetClientGetChambreDto.getClient().getTelephone());
+        client.setNom(rDto.getClient().getNom());
+        client.setPrenom(rDto.getClient().getPrenom());
+        client.setClientId(rDto.getClient().getClientId());
+        client.setEmail(rDto.getClient().getEmail());
+        client.setTelephone(rDto.getClient().getTelephone());
 
-        chambre.setNumero(reservationGetClientGetChambreDto.getChambre().getNumero());
-        chambre.setDisponible(reservationGetClientGetChambreDto.getChambre().getDisponible());
-        chambre.setChambreId(reservationGetClientGetChambreDto.getChambre().getChambreId());
-        chambre.setPrixNuit(reservationGetClientGetChambreDto.getChambre().getPrixNuit());
-        chambre.setType(reservationGetClientGetChambreDto.getChambre().getType());
+        chambre.setNumero(rDto.getChambre().getNumero());
+        chambre.setDisponible(rDto.getChambre().getDisponible());
+        chambre.setChambreId(rDto.getChambre().getChambreId());
+        chambre.setPrixNuit(rDto.getChambre().getPrixNuit());
+        chambre.setType(rDto.getChambre().getType());
 
         reservation.setClient(client);
         reservation.setChambre(chambre);
         return reservation;
+    }
+
+    public static ReservationGetClientGetChambreDto convertToDtoFullReservationIdDto(ReservationClientIdChambreIdDto rDto, ClientDto cDto, ChambreDto chDto){
+        ReservationGetClientGetChambreDto rCompleteDto = new ReservationGetClientGetChambreDto();
+        rCompleteDto.setDateDebut(rDto.getDateDebut());
+        rCompleteDto.setDateFin(rDto.getDateFin());
+        rCompleteDto.setClient(cDto);
+        rCompleteDto.setChambre(chDto);
+        return rCompleteDto;
     }
 
     public static ReservationByClientDto convertToDtoReservationByClient(ReservationEntity r){
@@ -61,6 +74,7 @@ public class ReservationConverterDto {
         rDto.setReservationId(r.getReservationId());
         rDto.setDateDebut(r.getDateDebut());
         rDto.setDateFin(r.getDateFin());
+
         if(r.getClient() != null){
             rDto.setClient(ClientConverterDto.convertToDtoClient(r.getClient()));
         }

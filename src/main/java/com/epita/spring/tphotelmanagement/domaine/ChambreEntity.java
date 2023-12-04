@@ -38,7 +38,7 @@ public class ChambreEntity {
     @Column(nullable = false)
     private Boolean disponible;
 
-    @OneToMany(mappedBy = "chambre")
+    @OneToMany(mappedBy = "chambre", cascade = CascadeType.REMOVE)
     private List<ReservationEntity> reservations;
 
     @CreatedDate

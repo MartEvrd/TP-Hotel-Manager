@@ -10,6 +10,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,6 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
+@ToString(onlyExplicitlyIncluded = true)
 @Table(name = "chambre")
 public class ChambreEntity {
 
@@ -54,4 +56,12 @@ public class ChambreEntity {
     @OneToMany(mappedBy = "chambre")
     private List<ChambreServiceEntity> chambreServices;
 
+    public ChambreEntity(String numero, TypeChambreEnum type, Double prixNuit, Boolean disponible) {
+        this.numero = numero;
+        this.type = type;
+        this.prixNuit = prixNuit;
+        this.disponible = disponible;
+        this.reservations = new ArrayList<>();
+        this.chambreServices = new ArrayList<>();
+    }
 }

@@ -16,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
+@ToString(onlyExplicitlyIncluded = true)
 @Table(name = "client", uniqueConstraints = {
         @UniqueConstraint(columnNames = {"nom", "prenom", "email"})
 })

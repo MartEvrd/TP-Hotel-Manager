@@ -12,6 +12,15 @@ import java.util.List;
 @Component
 public class ChambreConverterDto {
 
+    public static ChambreEntity convertToEntityChambreDto(ChambreDto chDto){
+        ChambreEntity ch = new ChambreEntity(
+                chDto.getNumero(),
+                chDto.getType(),
+                chDto.getPrixNuit(),
+                chDto.getDisponible());
+        return ch;
+    }
+
     // Conversion d'une chambre standard en chambre sans réservation
     public static ChambreDto convertToDtoChambre(ChambreEntity chambre){
         ChambreDto chambreDto = new ChambreDto();

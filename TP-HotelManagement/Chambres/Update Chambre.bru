@@ -1,0 +1,20 @@
+meta {
+  name: Update Chambre
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{base_url}}/chambre/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "numero": "109",
+    "type": "LIT_SIMPLE",
+    "prixNuit": 50,
+    "disponible": true
+  }
+}

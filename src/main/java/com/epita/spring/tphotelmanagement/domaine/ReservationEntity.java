@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
+@ToString(onlyExplicitlyIncluded = true)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,7 +32,6 @@ public class ReservationEntity {
 
     @ManyToOne
     @JoinColumn(name = "client_id")
-//    @ToString.Exclude
     private ClientEntity client;
 
     @ManyToOne

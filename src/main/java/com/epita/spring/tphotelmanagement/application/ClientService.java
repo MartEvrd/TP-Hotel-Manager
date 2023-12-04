@@ -1,5 +1,6 @@
 package com.epita.spring.tphotelmanagement.application;
 
+import com.epita.spring.tphotelmanagement.application.exceptions.EntityFormatException;
 import com.epita.spring.tphotelmanagement.domaine.ClientEntity;
 import com.epita.spring.tphotelmanagement.infrastructure.ClientRepository;
 import jakarta.persistence.EntityExistsException;
@@ -25,9 +26,9 @@ public class ClientService {
         return c;
     }
 
-    public ClientEntity createClient(ClientEntity c) throws IllegalArgumentException, EntityExistsException{
+    public ClientEntity createClient(ClientEntity c) throws EntityFormatException, EntityExistsException{
         if(c == null){
-            throw new IllegalArgumentException("Objet client null lors de l'enregistrement");
+            throw new EntityFormatException("Objet client null lors de l'enregistrement");
         }
         if(repository.existsByEmail(c.getEmail())){
             throw new EntityExistsException("Client avec cet email déjà existant");
@@ -40,9 +41,9 @@ public class ClientService {
         repository.delete(c);
     }
 
-    public ClientEntity updateClient(ClientEntity c, Long id) throws IllegalArgumentException, EntityNotFoundException, EntityExistsException{
+    public ClientEntity updateClient(ClientEntity c, Long id) throws EntityFormatException, EntityNotFoundException, EntityExistsException{
         if(c == null){
-            throw new IllegalArgumentException("Objet client null lors de l'enregistrement");
+            throw new EntityFormatException("Objet client null lors de l'enregistrement");
         }
         ClientEntity cBase = repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Le client avec l'Id n°"+id+" n'existe pas, impossible de le modifier"));
 

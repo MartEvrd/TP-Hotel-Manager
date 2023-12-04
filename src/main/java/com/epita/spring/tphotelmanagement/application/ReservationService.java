@@ -2,22 +2,14 @@ package com.epita.spring.tphotelmanagement.application;
 
 import com.epita.spring.tphotelmanagement.application.exceptions.EntityFormatException;
 import com.epita.spring.tphotelmanagement.application.exceptions.ReservationDatesException;
-import com.epita.spring.tphotelmanagement.domaine.ChambreEntity;
-import com.epita.spring.tphotelmanagement.domaine.ClientEntity;
 import com.epita.spring.tphotelmanagement.domaine.ReservationEntity;
-import com.epita.spring.tphotelmanagement.exposition.dto.chambre.ChambreConverterDto;
-import com.epita.spring.tphotelmanagement.exposition.dto.chambre.ChambreDto;
-import com.epita.spring.tphotelmanagement.exposition.dto.client.ClientConverterDto;
-import com.epita.spring.tphotelmanagement.exposition.dto.client.ClientDto;
-import com.epita.spring.tphotelmanagement.exposition.dto.reservation.ReservationConverterDto;
 import com.epita.spring.tphotelmanagement.infrastructure.ReservationRepository;
-import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class ReservationService {
@@ -92,7 +84,7 @@ public class ReservationService {
         // * Tester si la chambre est déjà occupée sur la période de réservation sélectionnée
         List<ReservationEntity> reservationsOfChambre = findAll()
                 .stream()
-                .filter((resBdd) -> resBdd.getChambre().getChambreId() == chambreId)
+                .filter((resBdd) -> Objects.equals(resBdd.getChambre().getChambreId(), chambreId))
                 .toList();
         if(!reservationsOfChambre.isEmpty()){
             for(ReservationEntity rChambre : reservationsOfChambre){
@@ -141,8 +133,8 @@ public class ReservationService {
 
         List<ReservationEntity> reservationsOfChambre = findAll()
                 .stream()
-                .filter((listResBdd) -> listResBdd.getReservationId() != reservationId)
-                .filter((listResBdd) -> listResBdd.getChambre().getChambreId() == chambreId)
+                .filter((listResBdd) -> !Objects.equals(listResBdd.getReservationId(), reservationId))
+                .filter((listResBdd) -> Objects.equals(listResBdd.getChambre().getChambreId(), chambreId))
                 .toList();
         if(!reservationsOfChambre.isEmpty()){
             for(ReservationEntity rChambre : reservationsOfChambre){
@@ -152,16 +144,10 @@ public class ReservationService {
                 }
             }
         }
-        System.out.println("---------------------------------------");
-        System.out.println("TESTS CONFIRMES");
-        System.out.println("---------------------------------------");
 
         rBdd.setChambre(r.getChambre());
         rBdd.setDateDebut(r.getDateDebut());
         rBdd.setDateFin(r.getDateFin());
-        System.out.println("---------------------------------------");
-        System.out.println("MODIF R BDD OK");
-        System.out.println("---------------------------------------");
 
         return repository.save(rBdd);
     }

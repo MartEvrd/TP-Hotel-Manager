@@ -4,6 +4,7 @@ import com.epita.spring.tphotelmanagement.application.ChambreService;
 import com.epita.spring.tphotelmanagement.application.ClientService;
 import com.epita.spring.tphotelmanagement.application.ReservationService;
 import com.epita.spring.tphotelmanagement.application.ServiceService;
+import com.epita.spring.tphotelmanagement.application.exceptions.EntityFormatException;
 import com.epita.spring.tphotelmanagement.exposition.dto.client.ClientConverterDto;
 import com.epita.spring.tphotelmanagement.exposition.dto.client.ClientDto;
 import com.epita.spring.tphotelmanagement.exposition.dto.client.ClientWithReservationDto;
@@ -43,7 +44,7 @@ public class ClientController {
     }
 
     @PostMapping("")
-    public ResponseEntity<ClientWithReservationDto> createClient(@Valid @RequestBody ClientDto cDto) throws IllegalArgumentException, EntityExistsException {
+    public ResponseEntity<ClientWithReservationDto> createClient(@Valid @RequestBody ClientDto cDto) throws EntityFormatException, EntityExistsException {
         return ResponseEntity.status(HttpStatus.CREATED).body(
                 ClientConverterDto.convertToDtoClientWithReservation(
                         clientService.createClient(ClientConverterDto.convertToEntityClientDto(cDto))));
@@ -56,7 +57,7 @@ public class ClientController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ClientWithReservationDto> updateClient(@PathVariable("id") Long id, @Valid @RequestBody ClientDto cDto) throws IllegalArgumentException, EntityNotFoundException, EntityExistsException{
+    public ResponseEntity<ClientWithReservationDto> updateClient(@PathVariable("id") Long id, @Valid @RequestBody ClientDto cDto) throws EntityFormatException, EntityNotFoundException, EntityExistsException{
         ClientWithReservationDto cWithResDto = ClientConverterDto.convertToDtoClientWithReservation(
                 clientService.updateClient(ClientConverterDto.convertToEntityClientDto(cDto), id));
         return ok(cWithResDto);

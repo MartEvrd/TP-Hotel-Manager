@@ -6,6 +6,19 @@ meta {
 
 put {
   url: {{base_url}}/reservation/1
-  body: none
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "client": {
+      "clientId": 2
+    },
+    "chambre": {
+      "chambreId": 7
+    },
+    "dateDebut": "2024-01-16",
+    "dateFin": "2024-01-25"
+  }
 }
